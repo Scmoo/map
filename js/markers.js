@@ -26,11 +26,11 @@ const locations = [
     visited: true,
   },
   {
-    name:    "Great Smoky Mountains",
-    folder:  "great-smoky-mountains",
-    lat:     35.6118,
-    lng:    -83.4895,
-    icon:    "🌲",
+    name:    "Breached Don Pinnoft",
+    folder:  "breached-don-pinnoft",
+    lat:     29.506435,
+    lng:    -81.139461,
+    icon:    "⛵",
     visited: true,
   },
 ];
