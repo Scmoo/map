@@ -1,0 +1,240 @@
+/* =============================================
+   TRAVEL JOURNAL - MAIN STYLES
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink:        #1a1a2e;
+  --cream:      #f5f0e8;
+  --gold:       #c9a84c;
+  --gold-light: #e8c96e;
+  --rust:       #b85c2c;
+  --forest:     #2d5a3d;
+  --mist:       #e8e4dc;
+  --shadow:     rgba(26, 26, 46, 0.55);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--ink);
+}
+
+/* ---- HEADER ---- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: 52px;
+  background: var(--ink);
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.header-left i {
+  font-size: 1.3rem;
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--cream);
+  letter-spacing: 0.03em;
+}
+
+.visit-count {
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid var(--gold);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ---- MAP ---- */
+#map {
+  position: fixed;
+  top: 52px;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
+/* Custom Leaflet attribution styling */
+.leaflet-control-attribution {
+  background: rgba(26, 26, 46, 0.8) !important;
+  color: #aaa !important;
+  font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--gold) !important;
+}
+
+/* ---- CUSTOM MARKERS ---- */
+.custom-marker {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  border: 3px solid var(--ink);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.custom-marker:hover {
+  background: var(--gold-light);
+  transform: rotate(-45deg) scale(1.15);
+}
+
+.custom-marker .marker-icon {
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* ---- MODAL OVERLAY ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--shadow);
+  z-index: 2000;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.25s ease;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+/* ---- LOCATION MODAL ---- */
+.location-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2001;
+  width: 90vw;
+  max-width: 860px;
+  height: 85vh;
+  background: var(--cream);
+  border-radius: 4px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  overflow: hidden;
+  animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.location-modal.hidden {
+  display: none;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  background: var(--ink);
+  color: var(--gold);
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.modal-close:hover {
+  background: var(--gold);
+  color: var(--ink);
+  transform: scale(1.1);
+}
+
+#locationFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ---- LEAFLET POPUP OVERRIDE (tooltip on hover) ---- */
+.leaflet-popup-content-wrapper {
+  background: var(--ink);
+  color: var(--cream);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  font-family: 'Source Sans 3', sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.leaflet-popup-tip {
+  background: var(--gold);
+}
+
+.leaflet-popup-content {
+  margin: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.popup-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.popup-hint {
+  font-size: 0.75rem;
+  color: #aaa;
+  font-style: italic;
+}

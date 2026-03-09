@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My US Travel Journal</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="site-header">
+    <div class="header-left">
+      <i class="fa-solid fa-map-location-dot"></i>
+      <span class="site-title">My US Travel Journal</span>
+    </div>
+    <div class="header-right">
+      <span class="visit-count" id="visitCount">0 Places Visited</span>
+    </div>
+  </header>
+
+  <!-- The Map -->
+  <div id="map"></div>
+
+  <!-- Modal Overlay (darkened background) -->
+  <div id="modalOverlay" class="modal-overlay hidden" onclick="closeModal()"></div>
+
+  <!-- Modal Popup -->
+  <div id="locationModal" class="location-modal hidden">
+    <button class="modal-close" onclick="closeModal()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <iframe id="locationFrame" src="" frameborder="0"></iframe>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/markers.js"></script>
+</body>
+</html>
