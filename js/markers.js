@@ -27,7 +27,7 @@ const locations = [
   },
   {
     name:    "Breached Don Pinnoft",
-    folder:  "breacheddonpinnoft",
+    folder:  "breached-don-pinnoft",
     lat:     29.506435,
     lng:    -81.139461,
     icon:    "⛵",
