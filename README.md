@@ -34,6 +34,12 @@ locations/
 
 4. **Add photos** — place your photos in the `photos/` folder. The hero image should be named `hero.jpg`.
 
+hero.jpg    ← the big banner image at the top
+photo1.jpg  ← first photo in the grid
+photo2.jpg  ← second photo in the grid
+photo3.jpg  ← third photo in the grid
+photo4.jpg  ← fourth photo in the grid
+
 ---
 
 ## Hosting on GitHub Pages
