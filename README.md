@@ -44,6 +44,8 @@ photo4.jpg  ← fourth photo in the grid
 - Accidental Landmark
 - National Park
 
+5. **Important Resources**
+- https://fontawesome.com for icons
 ---
 
 ## Hosting on GitHub Pages
