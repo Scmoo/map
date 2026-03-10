@@ -40,6 +40,10 @@ photo2.jpg  ← second photo in the grid
 photo3.jpg  ← third photo in the grid
 photo4.jpg  ← fourth photo in the grid
 
+4. **Titles For Sites**
+- Accidental Landmark
+- National Park
+
 ---
 
 ## Hosting on GitHub Pages
