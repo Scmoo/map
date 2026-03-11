@@ -6,40 +6,40 @@
 //  2. Create a folder: locations/your-folder-name/
 //  3. Create locations/your-folder-name/index.html
 //     (copy the template from any existing location)
+//
+//  LOCATION TYPES & THEIR COLORS:
+//  "safe"    → green
+//  "neutral"   → yellow (not an on trail route)
+//  "unsafe"     → red (can involve harm due to lack of maintenance)
 // =============================================
 
+// ---- Color lookup by type ----
+const typeColors = {
+  safe:    "#4ecb60",   // green
+  neutral:   "#c9a84c",   // yellow
+  unsafe:     "#c2574e",   // red
+};
+
 const locations = [
-  {
-    name:    "Grand Canyon",
-    folder:  "grand-canyon",        // must match folder name in /locations/
-    lat:     36.1069,
-    lng:    -112.1129,
-    icon:    "🏜️",
-    visited: true,
-  },
-  {
-    name:    "Yellowstone",
-    folder:  "yellowstone",
-    lat:     44.4280,
-    lng:    -110.5885,
-    icon:    "🌋",
-    visited: true,
-  },
   {
     name:    "Breached Don Pinnoft",
     folder:  "breached-don-pinnoft",
     lat:     29.506435,
     lng:    -81.139461,
     icon:    "⛵",
+    type:    "neutral",
     visited: true,
   },
 ];
 
 // ---- Build markers on the map ----
 locations.forEach(loc => {
-  // Create a custom styled marker pin
+  // Look up color by type, fall back to gold if no type set
+  const color = typeColors[loc.type] || '#c9a84c';
+
+  // Create a custom styled marker pin with the type color
   const markerHtml = `
-    <div class="custom-marker">
+    <div class="custom-marker" style="background: ${color};">
       <div class="marker-icon">${loc.icon}</div>
     </div>`;
 
@@ -47,13 +47,13 @@ locations.forEach(loc => {
     html:        markerHtml,
     className:   '',              // removes default Leaflet white box
     iconSize:    [36, 36],
-    iconAnchor:  [18, 36],       // tip of the pin
+    iconAnchor:  [18, 36],        // tip of the pin
     popupAnchor: [0, -38],
   });
 
   const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map);
 
-  // Popup tooltip that shows on click (before opening the modal)
+  // Popup tooltip that shows on hover
   marker.bindPopup(`
     <span class="popup-name">${loc.name}</span>
     <span class="popup-hint">Click to read more</span>
