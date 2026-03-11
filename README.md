@@ -40,9 +40,10 @@ photo2.jpg  ← second photo in the grid
 photo3.jpg  ← third photo in the grid
 photo4.jpg  ← fourth photo in the grid
 
-4. **Titles For Sites**
+4. **Title For Locations**
 - Accidental Landmark
 - National Park
+- Uncommon Landmarks
 
 5. **Important Resources**
 - https://fontawesome.com for icons

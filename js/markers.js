@@ -30,6 +30,15 @@ const locations = [
     type:    "neutral",
     visited: true,
   },
+  {
+    name:    "Dr. Evermor's Sculptures",
+    folder:  "dr-evermor",
+    lat:     43.363698,
+    lng:    -89.770846,
+    icon:    "🔩",
+    type:    "neutral",
+    visited: true,
+  },
 ];
 
 // ---- Build markers on the map ----
