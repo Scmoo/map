@@ -38,7 +38,7 @@ const locations = [
     icon:    "🔩",
     type:    "neutral",
     visited: true,
-  }
+  },
   {
     name:    "Mildred Cooper Memorial Chapel",
     folder:  "cooper-chapel",
