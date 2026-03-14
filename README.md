@@ -43,7 +43,10 @@ photo4.jpg  ← fourth photo in the grid
 4. **Title For Locations**
 - Accidental Landmark
 - National Park
-- Uncommon Landmarks
+- Uncommon Landmark
+- Church
+- Storefront
+- Restaurant
 
 5. **Important Resources**
 - https://fontawesome.com for icons
