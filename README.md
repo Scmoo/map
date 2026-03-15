@@ -47,6 +47,7 @@ photo4.jpg  ← fourth photo in the grid
 - Church
 - Storefront
 - Restaurant
+- Company Location
 
 5. **Important Resources**
 - https://fontawesome.com for icons

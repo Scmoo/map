@@ -50,7 +50,7 @@ const locations = [
   },
   {
     name:    "Epic",
-    folder:  "Epic",
+    folder:  "epic",
     lat:     42.996822,
     lng:    -89.566354,
     icon:    "🏬",
