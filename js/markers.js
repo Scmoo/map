@@ -48,6 +48,15 @@ const locations = [
     type:    "safe",
     visited: true,
   },
+  {
+    name:    "Epic",
+    folder:  "epic",
+    lat:     42.996822,
+    lng:    -89.566354,
+    icon:    "🏬",
+    type:    "safe",
+    visited: true,
+  },
 ];
 
 // ---- Build markers on the map ----
