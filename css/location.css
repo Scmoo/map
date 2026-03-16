@@ -352,6 +352,7 @@ body {
 /* ---- GRID FOR WARNING CARDS ---- */
 .warning-grid .warning-card:last-child:nth-child(odd) {
   grid-column: 1 / -1;
-  max-width: 50%;
+  width: 66%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
