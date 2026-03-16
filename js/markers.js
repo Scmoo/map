@@ -57,6 +57,15 @@ const locations = [
     type:    "safe",
     visited: true,
   },
+  {
+    name:    "Bass Pro Pyramid",
+    folder:  "bass-pro-pyramid",
+    lat:     35.154999,
+    lng:    -90.052299,
+    icon:    "🛕",
+    type:    "safe",
+    visited: true,
+  },
 ];
 
 // ---- Build markers on the map ----

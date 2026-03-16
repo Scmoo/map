@@ -45,7 +45,7 @@ photo4.jpg  ← fourth photo in the grid
 - National Park
 - Uncommon Landmark
 - Church
-- Storefront
+- Store Front
 - Restaurant
 - Company Location
 
