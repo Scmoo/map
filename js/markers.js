@@ -66,6 +66,15 @@ const locations = [
     type:    "safe",
     visited: true,
   },
+  {
+    name:    "BullsHead Express",
+    folder:  "bullshead-express",
+    lat:     37.601337,
+    lng:    -122.371883,
+    icon:    "🍣",
+    type:    "safe",
+    visited: true,
+  },
 ];
 
 // ---- Build markers on the map ----
