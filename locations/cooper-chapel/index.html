@@ -59,16 +59,40 @@
       </p>
     </section>
 
-    <!-- Photo Gallery -->
-    <section class="section">
-      <h2><i class="fa-solid fa-images"></i> Photos</h2>
-      <div class="photo-grid">
-        <div class="photo-card"><img src="photos/photo1.jpg" alt="Mildred B. Cooper Memorial Chapel" onerror="this.parentElement.classList.add('no-photo')"/></div>
-        <div class="photo-card"><img src="photos/photo2.jpg" alt="Mildred B. Cooper Memorial Chapel" onerror="this.parentElement.classList.add('no-photo')"/></div>
-        <div class="photo-card"><img src="photos/photo3.jpg" alt="Mildred B. Cooper Memorial Chapel" onerror="this.parentElement.classList.add('no-photo')"/></div>
-        <div class="photo-card"><img src="photos/photo4.jpg" alt="Mildred B. Cooper Memorial Chapel" onerror="this.parentElement.classList.add('no-photo')"/></div>
-      </div>
-    </section>
+<!-- Photo Gallery -->
+<section class="section">
+  <h2><i class="fa-solid fa-images"></i> Photos</h2>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo1.jpg" alt="Breached Don Pinnoft"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo2.jpg" alt="Breached Don Pinnoft"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo3.jpg" alt="Breached Don Pinnoft"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo4.jpg" alt="Breached Don Pinnoft"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+  </div>
+</section>
 
     <!-- History -->
     <section class="section">

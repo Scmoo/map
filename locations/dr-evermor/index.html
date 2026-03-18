@@ -61,16 +61,40 @@
       </p>
     </section>
 
-    <!-- Photo Gallery -->
-    <section class="section">
-      <h2><i class="fa-solid fa-images"></i> Photos</h2>
-      <div class="photo-grid">
-        <div class="photo-card"><img src="photos/photo1.jpg" alt="Foreverton" onerror="this.parentElement.classList.add('no-photo')"/></div>
-        <div class="photo-card"><img src="photos/photo2.jpg" alt="Decayed Car" onerror="this.parentElement.classList.add('no-photo')"/></div>
-        <div class="photo-card"><img src="photos/photo3.jpg" alt="Unknown Dial" onerror="this.parentElement.classList.add('no-photo')"/></div>
-        <div class="photo-card"><img src="photos/photo4.jpg" alt="Landscape of Park" onerror="this.parentElement.classList.add('no-photo')"/></div>
-      </div>
-    </section>
+<!-- Photo Gallery -->
+<section class="section">
+  <h2><i class="fa-solid fa-images"></i> Photos</h2>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo1.jpg" alt="Foreverton"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo2.jpg" alt="Decayed Car"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo3.jpg" alt="Unknown Dial"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+    <div class="photo-card">
+      <div class="img-loader"></div>
+      <img src="photos/photo4.jpg" alt="Landscape of Park"
+           class="location-img"
+           onload="this.classList.add('loaded')"
+           onerror="this.parentElement.classList.add('no-photo')" />
+    </div>
+  </div>
+</section>
 
     <!-- Important Notes -->
     <section class="section">

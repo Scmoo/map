@@ -356,3 +356,50 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
 }
+
+.img-wrapper {
+  position: relative;
+}
+
+/* Loading spinner — shows while image loads */
+.img-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.img-loader::after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border: 3px solid #ddd;
+  border-top-color: #2eb135;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Image starts invisible */
+.location-img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: block;
+  width: 100%;
+}
+
+/* Once fully loaded, fade it in */
+.location-img.loaded {
+  opacity: 1;
+}
+
+/* Hide spinner once image is loaded */
+.location-img.loaded + .img-loader,
+.img-loader:has(+ .loaded) {
+  display: none;
+}
