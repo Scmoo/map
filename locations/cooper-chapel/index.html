@@ -153,6 +153,16 @@
       </div>
     </section>
 
+    <script>
+  // Auto-hide any spinners after 5 seconds
+  // in case images fail to load silently
+  setTimeout(() => {
+    document.querySelectorAll('.img-loader').forEach(loader => {
+      loader.style.display = 'none';
+    });
+  }, 5000);
+</script>
+
   </div><!-- end .content -->
 
 </body>
