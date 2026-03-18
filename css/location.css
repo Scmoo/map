@@ -182,6 +182,8 @@ body {
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid #ddd;
+  /* Required so the absolute loader stays inside the card */
+  position: relative;
 }
 
 .photo-card img {
@@ -212,6 +214,11 @@ body {
 }
 
 .photo-card.no-photo img {
+  display: none;
+}
+
+/* Hide spinner on cards with no photo */
+.photo-card.no-photo .img-loader {
   display: none;
 }
 
@@ -357,24 +364,34 @@ body {
   box-sizing: border-box;
 }
 
-.img-wrapper {
-  position: relative;
-}
+/* =============================================
+   IMAGE LOADER
+   Spinner shows while photo loads,
+   fades in once fully ready.
+   ============================================= */
 
-/* Loading spinner — shows while image loads */
+/* Spinner sits inside .photo-card (which is position:relative) */
 .img-loader {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0f0f0;
+  background: transparent;
+  z-index: 1;
+  /* Auto-hide after 4s in case image silently fails */
+  animation: loaderTimeout 0s ease 4s forwards;
 }
 
+@keyframes loaderTimeout {
+  to { display: none; opacity: 0; pointer-events: none; }
+}
+
+/* The spinning circle */
 .img-loader::after {
   content: '';
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border: 3px solid #ddd;
   border-top-color: #2eb135;
   border-radius: 50%;
@@ -391,15 +408,23 @@ body {
   transition: opacity 0.4s ease;
   display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
 }
 
-/* Once fully loaded, fade it in */
+/* Fade in once fully loaded */
 .location-img.loaded {
   opacity: 1;
 }
 
-/* Hide spinner once image is loaded */
-.location-img.loaded + .img-loader,
-.img-loader:has(+ .loaded) {
+/* Hide spinner once image has loaded */
+.location-img.loaded ~ .img-loader {
+  display: none;
+}
+
+/* Hide spinner on no-photo cards */
+.photo-card.no-photo .img-loader {
   display: none;
 }
