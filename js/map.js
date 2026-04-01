@@ -60,10 +60,12 @@ setTimeout(() => {
     disclaimer.classList.remove('expanded');
     disclaimer.classList.add('collapsed');
     // Show icon immediately on initial collapse
-    const iconElement = disclaimer.querySelector('.disclaimer-icon');
-    if (iconElement) {
-      iconElement.style.opacity = '1';
-    }
+    iconTimeout = setTimeout(() => {
+      const iconElement = disclaimer.querySelector('.disclaimer-icon');
+      if (iconElement) {
+        iconElement.style.opacity = '1';
+      }
+    }, 1000);
     console.log('Disclaimer collapsed');
   }
 }, 7000);

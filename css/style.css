@@ -269,8 +269,8 @@ html, body {
 
 /* Expanded state */
 .photo-disclaimer.expanded {
-  width: auto;
-  height: auto;
+  width: 320px;
+  height: 120px;
   border-radius: 6px;
   max-width: 320px;
   padding: 12px 16px;
