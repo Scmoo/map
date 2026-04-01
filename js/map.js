@@ -51,7 +51,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---- DISCLAIMER TIMER ----
-// Collapse disclaimer after 5 seconds
+// Collapse disclaimer after 7 seconds
 console.log('Disclaimer timer starting...');
 setTimeout(() => {
   const disclaimer = document.getElementById('photoDisclaimer');
@@ -87,13 +87,13 @@ if (disclaimer) {
       iconElement.style.opacity = '0';
     }
     
-    // Show text after expansion completes (400ms)
+    // Show text after expansion completes (100ms)
     textTimeout = setTimeout(() => {
       const textElement = disclaimer.querySelector('.disclaimer-content p');
       if (textElement) {
         textElement.classList.add('show-text');
       }
-    }, 400);
+    }, 100);
   });
   
   disclaimer.addEventListener('mouseleave', () => {
@@ -108,13 +108,13 @@ if (disclaimer) {
       textElement.classList.remove('show-text');
     }
     
-    // Show icon after 2 seconds delay
+    // Show icon after 1 seconds delay
     iconTimeout = setTimeout(() => {
       const iconElement = disclaimer.querySelector('.disclaimer-icon');
       if (iconElement && disclaimer.classList.contains('collapsed')) {
         iconElement.style.opacity = '1';
       }
-    }, 2000);
+    }, 1000);
     
     // Wait 5 seconds before allowing collapse
     hoverTimeout = setTimeout(() => {
