@@ -238,3 +238,59 @@ html, body {
   color: #aaa;
   font-style: italic;
 }
+
+/* ---- PHOTO DISCLAIMER ---- */
+.photo-disclaimer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  max-width: 320px;
+  background: rgba(26, 26, 46, 0.92);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  padding: 12px 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: opacity 0.3s ease;
+}
+
+.disclaimer-content p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--cream);
+  margin: 0;
+}
+
+.disclaimer-content strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.disclaimer-content a {
+  color: var(--gold-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.disclaimer-content a:hover {
+  color: var(--cream);
+  text-decoration: underline;
+}
+
+/* Hide disclaimer on small screens to avoid clutter */
+@media (max-width: 768px) {
+  .photo-disclaimer {
+    max-width: 280px;
+    font-size: 0.7rem;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-disclaimer {
+    display: none;
+  }
+}
