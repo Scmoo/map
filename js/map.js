@@ -51,7 +51,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---- DISCLAIMER TIMER ----
-// Collapse disclaimer after 7 seconds
+// Collapse disclaimer after 5 seconds
 console.log('Disclaimer timer starting...');
 setTimeout(() => {
   const disclaimer = document.getElementById('photoDisclaimer');
@@ -59,20 +59,27 @@ setTimeout(() => {
   if (disclaimer) {
     disclaimer.classList.remove('expanded');
     disclaimer.classList.add('collapsed');
+    // Show icon immediately on initial collapse
+    const iconElement = disclaimer.querySelector('.disclaimer-icon');
+    if (iconElement) {
+      iconElement.style.opacity = '1';
+    }
     console.log('Disclaimer collapsed');
   }
-}, 7000);
+}, 5000);
 
 // ---- DISCLAIMER HOVER BEHAVIOR ----
 const disclaimer = document.getElementById('photoDisclaimer');
 let hoverTimeout;
 let textTimeout;
+let iconTimeout;
 
 if (disclaimer) {
   disclaimer.addEventListener('mouseenter', () => {
     // Clear any existing timeouts
     clearTimeout(hoverTimeout);
     clearTimeout(textTimeout);
+    clearTimeout(iconTimeout);
     
     // Show text after expansion completes (600ms)
     textTimeout = setTimeout(() => {
@@ -87,6 +94,7 @@ if (disclaimer) {
     // Clear timeouts
     clearTimeout(hoverTimeout);
     clearTimeout(textTimeout);
+    clearTimeout(iconTimeout);
     
     // Remove text visibility class immediately
     const textElement = disclaimer.querySelector('.disclaimer-content p');
@@ -94,12 +102,20 @@ if (disclaimer) {
       textElement.classList.remove('show-text');
     }
     
-    // Wait 7 seconds before allowing collapse
+    // Show icon after 2 seconds delay
+    iconTimeout = setTimeout(() => {
+      const iconElement = disclaimer.querySelector('.disclaimer-icon');
+      if (iconElement && disclaimer.classList.contains('collapsed')) {
+        iconElement.style.opacity = '1';
+      }
+    }, 2000);
+    
+    // Wait 5 seconds before allowing collapse
     hoverTimeout = setTimeout(() => {
       // Only collapse if we're still in collapsed state and not hovering
       if (disclaimer.classList.contains('collapsed') && !disclaimer.matches(':hover')) {
         // Already collapsed, nothing to do
       }
-    }, 7000);
+    }, 5000);
   });
 }
