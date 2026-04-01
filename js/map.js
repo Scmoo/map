@@ -49,3 +49,13 @@ function closeModal() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
+
+// ---- DISCLAIMER TIMER ----
+// Collapse disclaimer after 7 seconds
+setTimeout(() => {
+  const disclaimer = document.getElementById('photoDisclaimer');
+  if (disclaimer) {
+    disclaimer.classList.remove('expanded');
+    disclaimer.classList.add('collapsed');
+  }
+}, 7000);

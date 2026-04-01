@@ -245,14 +245,69 @@ html, body {
   bottom: 20px;
   left: 20px;
   z-index: 100;
-  max-width: 320px;
   background: rgba(26, 26, 46, 0.92);
   border: 1px solid var(--gold);
   border-radius: 6px;
-  padding: 12px 16px;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  transition: opacity 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* Expanded state */
+.photo-disclaimer.expanded {
+  max-width: 320px;
+  padding: 12px 16px;
+}
+
+.photo-disclaimer.expanded .disclaimer-content {
+  display: block;
+  opacity: 1;
+}
+
+.photo-disclaimer.expanded .disclaimer-icon {
+  display: none;
+}
+
+/* Collapsed state */
+.photo-disclaimer.collapsed {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0;
+  max-width: 44px;
+}
+
+.photo-disclaimer.collapsed .disclaimer-content {
+  display: none;
+}
+
+.photo-disclaimer.collapsed .disclaimer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* Hover expansion */
+.photo-disclaimer.collapsed:hover {
+  width: 320px;
+  height: auto;
+  border-radius: 6px;
+  padding: 12px 16px;
+  max-width: 320px;
+}
+
+.photo-disclaimer.collapsed:hover .disclaimer-content {
+  display: block;
+  opacity: 1;
+}
+
+.photo-disclaimer.collapsed:hover .disclaimer-icon {
+  display: none;
 }
 
 .disclaimer-content p {
@@ -260,6 +315,8 @@ html, body {
   line-height: 1.4;
   color: var(--cream);
   margin: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .disclaimer-content strong {
@@ -278,14 +335,22 @@ html, body {
   text-decoration: underline;
 }
 
-/* Hide disclaimer on small screens to avoid clutter */
+.disclaimer-icon {
+  display: none;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .photo-disclaimer {
+  .photo-disclaimer.expanded {
     max-width: 280px;
     font-size: 0.7rem;
     bottom: 15px;
     left: 15px;
     padding: 10px 12px;
+  }
+  
+  .photo-disclaimer.collapsed:hover {
+    max-width: 280px;
   }
 }
 
