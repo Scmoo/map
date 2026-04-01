@@ -66,7 +66,7 @@ setTimeout(() => {
     }
     console.log('Disclaimer collapsed');
   }
-}, 5000);
+}, 7000);
 
 // ---- DISCLAIMER HOVER BEHAVIOR ----
 const disclaimer = document.getElementById('photoDisclaimer');
@@ -81,13 +81,19 @@ if (disclaimer) {
     clearTimeout(textTimeout);
     clearTimeout(iconTimeout);
     
-    // Show text after expansion completes (600ms)
+    // Hide icon immediately when hovering
+    const iconElement = disclaimer.querySelector('.disclaimer-icon');
+    if (iconElement) {
+      iconElement.style.opacity = '0';
+    }
+    
+    // Show text after expansion completes (400ms)
     textTimeout = setTimeout(() => {
       const textElement = disclaimer.querySelector('.disclaimer-content p');
       if (textElement) {
         textElement.classList.add('show-text');
       }
-    }, 600);
+    }, 400);
   });
   
   disclaimer.addEventListener('mouseleave', () => {
