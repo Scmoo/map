@@ -250,8 +250,9 @@ html, body {
   border-radius: 6px;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  overflow: hidden;
 }
 
 /* Expanded state */
@@ -263,6 +264,11 @@ html, body {
 .photo-disclaimer.expanded .disclaimer-content {
   display: block;
   opacity: 1;
+}
+
+.photo-disclaimer.expanded .disclaimer-content p {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.6s;
 }
 
 .photo-disclaimer.expanded .disclaimer-icon {
@@ -306,8 +312,18 @@ html, body {
   opacity: 1;
 }
 
+.photo-disclaimer.collapsed:hover .disclaimer-content p {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.6s;
+}
+
 .photo-disclaimer.collapsed:hover .disclaimer-icon {
   display: none;
+}
+
+/* Show text after expansion completes */
+.photo-disclaimer.collapsed:hover .disclaimer-content p.show-text {
+  opacity: 1;
 }
 
 .disclaimer-content p {

@@ -52,10 +52,54 @@ document.addEventListener('keydown', (e) => {
 
 // ---- DISCLAIMER TIMER ----
 // Collapse disclaimer after 7 seconds
+console.log('Disclaimer timer starting...');
 setTimeout(() => {
   const disclaimer = document.getElementById('photoDisclaimer');
+  console.log('Timer fired, disclaimer element:', disclaimer);
   if (disclaimer) {
     disclaimer.classList.remove('expanded');
     disclaimer.classList.add('collapsed');
+    console.log('Disclaimer collapsed');
   }
 }, 7000);
+
+// ---- DISCLAIMER HOVER BEHAVIOR ----
+const disclaimer = document.getElementById('photoDisclaimer');
+let hoverTimeout;
+let textTimeout;
+
+if (disclaimer) {
+  disclaimer.addEventListener('mouseenter', () => {
+    // Clear any existing timeouts
+    clearTimeout(hoverTimeout);
+    clearTimeout(textTimeout);
+    
+    // Show text after expansion completes (600ms)
+    textTimeout = setTimeout(() => {
+      const textElement = disclaimer.querySelector('.disclaimer-content p');
+      if (textElement) {
+        textElement.classList.add('show-text');
+      }
+    }, 600);
+  });
+  
+  disclaimer.addEventListener('mouseleave', () => {
+    // Clear timeouts
+    clearTimeout(hoverTimeout);
+    clearTimeout(textTimeout);
+    
+    // Remove text visibility class immediately
+    const textElement = disclaimer.querySelector('.disclaimer-content p');
+    if (textElement) {
+      textElement.classList.remove('show-text');
+    }
+    
+    // Wait 7 seconds before allowing collapse
+    hoverTimeout = setTimeout(() => {
+      // Only collapse if we're still in collapsed state and not hovering
+      if (disclaimer.classList.contains('collapsed') && !disclaimer.matches(':hover')) {
+        // Already collapsed, nothing to do
+      }
+    }, 7000);
+  });
+}
