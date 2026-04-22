@@ -75,6 +75,15 @@ const locations = [
     type:    "safe",
     visited: true,
   },
+  {
+    name:    "Dungeness Ruins",
+    folder:  "dungeness-ruins",
+    lat:     30.748670,
+    lng:    -81.470796,
+    icon:    "🏛",
+    type:    "neutral",
+    visited: true,
+  },
 ];
 
 // ---- Build markers on the map ----
